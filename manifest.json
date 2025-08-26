@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Ctrl-See",
+  "version": "1.0.0",
+  "description": "A modern clipboard history manager in your sidebar",
+  "permissions": [
+    "storage",
+    "clipboardRead",
+    "clipboardWrite",
+    "sidePanel",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Open Ctrl-See"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
